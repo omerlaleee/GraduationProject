@@ -9,6 +9,5 @@ namespace Entities.Abstract
     public interface IHelper
     {
         string InfoAboutHelp { get; set; }
-
     }
 }
