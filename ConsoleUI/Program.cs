@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities.Concrete;
+using System;
 
 namespace ConsoleUI
 {
@@ -7,6 +8,7 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            TentHelper tentHelper = new TentHelper();
         }
     }
 }
