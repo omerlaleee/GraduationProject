@@ -10,13 +10,14 @@ namespace DataAccess.Concrete
 {
     public class EarthquakeContext : DbContext
     {
-        protected static void OnConfigure(DbContextOptionsBuilder dbContextOptionsBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string oflstr = @"Data Source=DESKTOP-L9ESE9R\OMER;Initial Catalog=GraduationProjectDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
-            string mesutstr = @"Data Source=DESKTOP-8DD9NIJ;Initial Catalog=GraduationProjectDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            dbContextOptionsBuilder.UseSqlServer(mesutstr);
+            string omerConnectionString = @"Data Source=DESKTOP-L9ESE9R\OMER;Initial Catalog=GraduationProjectDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False;Trusted_Connection=true";
+            string mesutConnectionString = @"Data Source=DESKTOP-8DD9NIJ;Initial Catalog=GraduationProjectDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            optionsBuilder.UseSqlServer(omerConnectionString);
         }
 
+        public DbSet<Victim> Victims { get; set; }
         public DbSet<ColdVictim> ColdVictims { get; set; }
         public DbSet<FoodVictim> FoodVictims { get; set; }
         public DbSet<FoodHelper> FoodHelpers { get; set; }
@@ -26,6 +27,5 @@ namespace DataAccess.Concrete
         public DbSet<OperatorHelper> OperatorHelpers { get; set; }
         public DbSet<TentHelper> TentHelpers { get; set; }
         public DbSet<TransporterHelper> TransporterHelpers { get; set; }
-        public DbSet<Victim> Victims { get; set; }
     }
 }
