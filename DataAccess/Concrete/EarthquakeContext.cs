@@ -8,13 +8,24 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete
 {
-    public class EarthquakeContext:DbContext
+    public class EarthquakeContext : DbContext
     {
         protected static void OnConfigure(DbContextOptionsBuilder dbContextOptionsBuilder)
         {
-            dbContextOptionsBuilder.UseSqlServer("Server = DESKTOP - 8DD9NIJ; Database = Northwind; Trusted_Connection = true");
+            string oflstr = @"Data Source=DESKTOP-L9ESE9R\OMER;Initial Catalog=GraduationProjectDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+            string mesutstr = @"Data Source=DESKTOP-8DD9NIJ;Initial Catalog=GraduationProjectDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            dbContextOptionsBuilder.UseSqlServer(mesutstr);
+        }
 
-           
-    } public DbSet<ColdVictim> ColdVictims { get; set; }
+        public DbSet<ColdVictim> ColdVictims { get; set; }
+        public DbSet<FoodVictim> FoodVictims { get; set; }
+        public DbSet<FoodHelper> FoodHelpers { get; set; }
+        public DbSet<DebrisVictim> DebrisVictims { get; set; }
+        public DbSet<Helper> Helpers { get; set; }
+        public DbSet<HouseHelper> HouseHelpers { get; set; }
+        public DbSet<OperatorHelper> OperatorHelpers { get; set; }
+        public DbSet<TentHelper> TentHelpers { get; set; }
+        public DbSet<TransporterHelper> TransporterHelpers { get; set; }
+        public DbSet<Victim> Victims { get; set; }
     }
 }
