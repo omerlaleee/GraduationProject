@@ -10,11 +10,19 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             VictimManager victimManager = new VictimManager(new EfVictimDal());
-            var result1 = victimManager.Add(new Victim { Name = "A", Surname = "A", Email = "A", PhoneNumber = "0", NumberOfPeople = 1, Address = "A", DetailedAddress = "A", Urgency = "A", StatusInformation = "A", MapsAddress = "A" });
+            Victim victim = new Victim { Name = "A", Surname = "A", Email = "A", PhoneNumber = "0", NumberOfPeople = 1, Address = "A", DetailedAddress = "A", Urgency = "A", StatusInformation = "A", MapsAddress = "A" };
+
+            var result1 = victimManager.Add(victim);
+
+            var x = victimManager.GetByEmail(victim.Email);
+
             Console.WriteLine(result1.Success);
             Console.WriteLine(result1.Message);
 
-            //DebrisVictimManager debrisVictimManager = new DebrisVictimManager(new EfDebrisVictimDal());
+            DebrisVictimManager debrisVictimManager = new DebrisVictimManager(new EfDebrisVictimDal());
+            DebrisVictim debrisVictim = new DebrisVictim();
+            debrisVictim.VictimId = x.Data.Id;
+            debrisVictimManager.Add(debrisVictim);
             //var result2 = debrisVictimManager.Add(new DebrisVictim { VictimId = 2 });
         }
     }
