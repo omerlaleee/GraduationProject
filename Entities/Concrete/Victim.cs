@@ -20,5 +20,6 @@ namespace Entities.Concrete
         public string Urgency { get; set; }
         public string StatusInformation { get; set; }
         public string MapsAddress { get; set; }
+        public string VictimType { get; set; }
     }
 }
