@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Core.Utilities.Results;
+using DataAccess.Abstract;
+using DataAccess.Concrete;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,29 +13,39 @@ namespace Business.Concrete
 {
     public class HelperManager : IHelperService
     {
-        public IResult Add(Helper Helper)
+        IHelperDal _helperDal;
+
+        public HelperManager(IHelperDal helperDal)
         {
-            throw new NotImplementedException();
+            _helperDal = helperDal;
         }
 
-        public IResult Delete(Helper Helper)
+        public IResult Add(Helper helper)
         {
-            throw new NotImplementedException();
+            _helperDal.Add(helper);
+            return new SuccessResult();
+        }
+
+        public IResult Delete(Helper helper)
+        {
+            _helperDal.Delete(helper);
+            return new SuccessResult();
         }
 
         public IDataResult<List<Helper>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Helper>>(_helperDal.GetAll());
         }
 
-        public IDataResult<Helper> GetById(int HelperId)
+        public IDataResult<Helper> GetById(int helperId)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<Helper>(_helperDal.Get(h => h.Id == helperId));
         }
 
-        public IResult Update(Helper Helper)
+        public IResult Update(Helper helper)
         {
-            throw new NotImplementedException();
+            _helperDal.Update(helper);
+            return new SuccessResult();
         }
     }
 }

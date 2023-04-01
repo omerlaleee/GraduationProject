@@ -1,5 +1,8 @@
 ﻿using Business.Abstract;
+using Business.Cosntants;
 using Core.Utilities.Results;
+using DataAccess.Abstract;
+using DataAccess.Concrete;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,34 +14,45 @@ namespace Business.Concrete
 {
     public class ColdVictimManager : IColdVictimService
     {
+        IColdVictimDal _coldVictimDal;
+        IVictimService _victimService;
+        public ColdVictimManager(IColdVictimDal coldVictimDal)
+        {
+            _coldVictimDal = coldVictimDal;
+        }
         public IResult Add(ColdVictim coldVictim)
         {
-            throw new NotImplementedException();
+            _coldVictimDal.Add(coldVictim);
+            return new SuccessResult(Messages.ColdVictimAdded);
         }
 
         public IResult Delete(ColdVictim coldVictim)
         {
-            throw new NotImplementedException();
+            _coldVictimDal.Delete(coldVictim);
+            return new SuccessResult(Messages.ColdVictimDeleted);
         }
 
         public IDataResult<List<ColdVictim>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<ColdVictim>>(Messages.ColdVictimsListed, _coldVictimDal.GetAll());
         }
 
         public IDataResult<ColdVictim> GetByEmail(string email)
         {
-            throw new NotImplementedException();
+            var victim = _victimService.GetByEmail(email);
+            var coldVictim = new ColdVictim { VictimId = victim.Data.Id };
+            return new SuccessDataResult<ColdVictim>(Messages.TheColdVictimListed, coldVictim);
         }
 
         public IDataResult<ColdVictim> GetById(int coldVictimId)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<ColdVictim>(Messages.TheColdVictimListed, _coldVictimDal.Get(c => c.Id == coldVictimId));
         }
 
         public IResult Update(ColdVictim coldVictim)
         {
-            throw new NotImplementedException();
+            _coldVictimDal.Update(coldVictim);
+            return new SuccessResult(Messages.ColdVictimUpdated);
         }
     }
 }

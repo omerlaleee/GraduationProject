@@ -1,5 +1,8 @@
 ﻿using Business.Abstract;
+using Business.Cosntants;
 using Core.Utilities.Results;
+using DataAccess.Abstract;
+using DataAccess.Concrete;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,29 +14,37 @@ namespace Business.Concrete
 {
     public class FoodHelperManager : IFoodHelperService
     {
+        IFoodHelperDal _foodHelperDal;
+        public FoodHelperManager(IFoodHelperDal foodHelperDal)
+        {
+            _foodHelperDal = foodHelperDal;
+        }
         public IResult Add(FoodHelper foodHelper)
         {
-            throw new NotImplementedException();
+            _foodHelperDal.Add(foodHelper);
+            return new SuccessResult();
         }
 
         public IResult Delete(FoodHelper foodHelper)
         {
-            throw new NotImplementedException();
+            _foodHelperDal.Delete(foodHelper);
+            return new SuccessResult();
         }
 
         public IDataResult<List<FoodHelper>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<FoodHelper>>(_foodHelperDal.GetAll());
         }
 
         public IDataResult<FoodHelper> GetById(int foodHelperId)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<FoodHelper>(_foodHelperDal.Get(f => f.Id == foodHelperId));
         }
 
         public IResult Update(FoodHelper foodHelper)
         {
-            throw new NotImplementedException();
+            _foodHelperDal.Update(foodHelper);
+            return new SuccessResult();
         }
     }
 }

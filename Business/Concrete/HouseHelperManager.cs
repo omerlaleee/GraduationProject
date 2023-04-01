@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Core.Utilities.Results;
+using DataAccess.Abstract;
+using DataAccess.Concrete;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,29 +13,39 @@ namespace Business.Concrete
 {
     public class HouseHelperManager : IHouseHelperService
     {
+        IHouseHelperDal _houseHelperDal;
+
+        public HouseHelperManager(IHouseHelperDal houseHelperDal)
+        {
+            _houseHelperDal = houseHelperDal;
+        }
+
         public IResult Add(HouseHelper houseHelper)
         {
-            throw new NotImplementedException();
+            _houseHelperDal.Add(houseHelper);
+            return new SuccessResult();
         }
 
         public IResult Delete(HouseHelper houseHelper)
         {
-            throw new NotImplementedException();
+            _houseHelperDal.Delete(houseHelper);
+            return new SuccessResult();
         }
 
         public IDataResult<List<HouseHelper>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<HouseHelper>>(_houseHelperDal.GetAll());
         }
 
         public IDataResult<HouseHelper> GetById(int houseHelperId)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<HouseHelper>(_houseHelperDal.Get(h => h.Id == houseHelperId));
         }
 
         public IResult Update(HouseHelper houseHelper)
         {
-            throw new NotImplementedException();
+            _houseHelperDal.Update(houseHelper);
+            return new SuccessResult();
         }
     }
 }

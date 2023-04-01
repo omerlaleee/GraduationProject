@@ -10,10 +10,10 @@ namespace Business.Abstract
 {
     public interface IHelperService
     {
-        IResult Add(Helper Helper);
-        IResult Update(Helper Helper);
-        IResult Delete(Helper Helper);
+        IResult Add(Helper helper);
+        IResult Update(Helper helper);
+        IResult Delete(Helper helper);
         IDataResult<List<Helper>> GetAll();
-        IDataResult<Helper> GetById(int HelperId);
+        IDataResult<Helper> GetById(int helperId);
     }
 }

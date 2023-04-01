@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
-    internal class FoodVictimManager
+    public class FoodVictimManager
     {
     }
 }

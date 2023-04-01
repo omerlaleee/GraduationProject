@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Core.Utilities.Results;
+using DataAccess.Abstract;
+using DataAccess.Concrete;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,29 +13,39 @@ namespace Business.Concrete
 {
     public class TransporterHelperManager : ITransporterHelperService
     {
+        ITransporterHelperDal _transporterHelperDal;
+
+        public TransporterHelperManager(ITransporterHelperDal transporterHelperDal)
+        {
+            _transporterHelperDal = transporterHelperDal;
+        }
+
         public IResult Add(TransporterHelper transporterHelper)
         {
-            throw new NotImplementedException();
+            _transporterHelperDal.Add(transporterHelper);
+            return new SuccessResult();
         }
 
         public IResult Delete(TransporterHelper transporterHelper)
         {
-            throw new NotImplementedException();
+            _transporterHelperDal.Delete(transporterHelper);
+            return new SuccessResult();
         }
 
         public IDataResult<List<TransporterHelper>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<TransporterHelper>>(_transporterHelperDal.GetAll());
         }
 
         public IDataResult<TransporterHelper> GetById(int transporterHelperId)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<TransporterHelper>(_transporterHelperDal.Get(t => t.Id == transporterHelperId));
         }
 
         public IResult Update(TransporterHelper transporterHelper)
         {
-            throw new NotImplementedException();
+            _transporterHelperDal.Update(transporterHelper);
+            return new SuccessResult();
         }
     }
 }

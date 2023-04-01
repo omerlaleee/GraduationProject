@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Core.Utilities.Results;
+using DataAccess.Abstract;
+using DataAccess.Concrete;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,29 +13,39 @@ namespace Business.Concrete
 {
     public class OperatorHelperManager : IOperatorHelperService
     {
+        IOperatorHelperDal _operatorHelperDal;
+
+        public OperatorHelperManager(IOperatorHelperDal operatorHelperDal)
+        {
+            _operatorHelperDal = operatorHelperDal;
+        }
+
         public IResult Add(OperatorHelper operatorHelper)
         {
-            throw new NotImplementedException();
+            _operatorHelperDal.Add(operatorHelper);
+            return new SuccessResult();
         }
 
         public IResult Delete(OperatorHelper operatorHelper)
         {
-            throw new NotImplementedException();
+            _operatorHelperDal.Delete(operatorHelper);
+            return new SuccessResult();
         }
 
         public IDataResult<List<OperatorHelper>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<OperatorHelper>>(_operatorHelperDal.GetAll());
         }
 
         public IDataResult<OperatorHelper> GetById(int operatorHelperId)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<OperatorHelper>(_operatorHelperDal.Get(o => o.Id == operatorHelperId));
         }
 
         public IResult Update(OperatorHelper operatorHelper)
         {
-            throw new NotImplementedException();
+            _operatorHelperDal.Update(operatorHelper);
+            return new SuccessResult();
         }
     }
 }
