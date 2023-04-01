@@ -27,5 +27,6 @@ namespace DataAccess.Concrete
         public DbSet<OperatorHelper> OperatorHelpers { get; set; }
         public DbSet<TentHelper> TentHelpers { get; set; }
         public DbSet<TransporterHelper> TransporterHelpers { get; set; }
+        public DbSet<BuildReporter> BuildReporters { get; set; }
     }
 }
