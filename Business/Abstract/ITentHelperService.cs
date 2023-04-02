@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    internal interface ITentHelperService
+    public interface ITentHelperService
     {
         IResult Add(TentHelper tentHelper);
         IResult Update(TentHelper tentHelper);

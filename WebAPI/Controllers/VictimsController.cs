@@ -7,24 +7,13 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class VictimController : ControllerBase
+    public class VictimsController : ControllerBase
     {
         IVictimService _victimService;
 
-        public VictimController(IVictimService victimService)
+        public VictimsController(IVictimService victimService)
         {
             _victimService = victimService;
-        }
-
-        [HttpGet("getall")]
-        public IActionResult GetAll()
-        {
-            var result=_victimService.GetAll();
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
         }
 
         [HttpPost]
@@ -49,10 +38,43 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
+        [HttpGet("getall")]
+        public IActionResult GetAll()
+        {
+            var result = _victimService.GetAll();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getbyemail")]
+        public IActionResult GetByEmail(string email)
+        {
+            var result = _victimService.GetByEmail(email);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getbyid")]
+        public IActionResult GetById(int id)
+        {
+            var result = _victimService.GetById(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
         [HttpPost("update")]
         public IActionResult Update(Victim victim)
         {
-            var result=_victimService.Add(victim);
+            var result=_victimService.Update(victim);
             if (result.Success)
             {
                 return Ok(result);
