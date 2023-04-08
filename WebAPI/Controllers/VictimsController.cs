@@ -16,7 +16,7 @@ namespace WebAPI.Controllers
             _victimService = victimService;
         }
 
-        [HttpPost]
+        [HttpPost("add")]
         public IActionResult Add(Victim victim)
         {
             var result=_victimService.Add(victim);
