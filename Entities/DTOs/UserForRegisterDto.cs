@@ -1,4 +1,6 @@
-﻿namespace Entities.DTOs
+﻿using Core.Entities;
+
+namespace Entities.DTOs
 {
     public class UserForRegisterDto : IDto
     {
