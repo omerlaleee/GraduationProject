@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface IHelperDal: IEntityRepository<Helper>
-    {
-    }
+    //public interface IHelperDal: IEntityRepository<Helper>
+    //{
+    //}
 }

@@ -23,7 +23,7 @@ namespace DataAccess.Concrete
         public DbSet<FoodVictim> FoodVictims { get; set; }
         public DbSet<FoodHelper> FoodHelpers { get; set; }
         public DbSet<DebrisVictim> DebrisVictims { get; set; }
-        public DbSet<Helper> Helpers { get; set; }
+        // public DbSet<Helper> Helpers { get; set; }
         public DbSet<HouseHelper> HouseHelpers { get; set; }
         public DbSet<OperatorHelper> OperatorHelpers { get; set; }
         public DbSet<TentHelper> TentHelpers { get; set; }

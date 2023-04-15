@@ -17,6 +17,7 @@ namespace Business.Concrete
 
         public IResult Add(User user)
         {
+            // user.Status = true;
             _userDal.Add(user);
             return new SuccessResult("Messages.UserAdded");
         }
@@ -34,7 +35,7 @@ namespace Business.Concrete
 
         public IDataResult<User> GetById(int userId)
         {
-            return new SuccessDataResult<User>("Messages.TheUserListed", _userDal.Get(u => u.UserId == userId));
+            return new SuccessDataResult<User>("Messages.TheUserListed", _userDal.Get(u => u.Id == userId));
         }
 
         public IDataResult<User> GetByMail(string email)

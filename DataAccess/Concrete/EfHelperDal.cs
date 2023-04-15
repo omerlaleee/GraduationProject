@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete
 {
-    public class EfHelperDal : EfEntityRepositoryBase<Helper, EarthquakeContext>, IHelperDal
-    {
-    }
+    //public class EfHelperDal : EfEntityRepositoryBase<Helper, EarthquakeContext>, IHelperDal
+    //{
+    //}
 }

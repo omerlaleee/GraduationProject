@@ -10,7 +10,7 @@ namespace Entities.Concrete
     public class HouseHelper : IEntity
     {
         public int Id { get; set; }
-        public int HelperId { get; set; }
+        public int UserId { get; set; }
         public string InfoAboutHelp { get; set; }
         public int NumberOfPeople { get; set; }
         public string MapsAddress { get; set; }

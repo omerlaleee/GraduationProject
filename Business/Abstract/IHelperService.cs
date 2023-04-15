@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    public interface IHelperService
-    {
-        IResult Add(Helper helper);
-        IResult Update(Helper helper);
-        IResult Delete(Helper helper);
-        IDataResult<List<Helper>> GetAll();
-        IDataResult<Helper> GetById(int helperId);
-    }
+    //public interface IHelperService
+    //{
+    //    IResult Add(Helper helper);
+    //    IResult Update(Helper helper);
+    //    IResult Delete(Helper helper);
+    //    IDataResult<List<Helper>> GetAll();
+    //    IDataResult<Helper> GetById(int helperId);
+    //}
 }
