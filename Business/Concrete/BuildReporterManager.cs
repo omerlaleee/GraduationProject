@@ -31,6 +31,7 @@ namespace Business.Concrete
             _buildReporterDal.Delete(buildReporter);
             return new SuccessResult();
         }
+
         [SecuredOperation("admin")]
         public IDataResult<List<BuildReporter>> GetAll()
         {

@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Aspects.Autofac.Caching
+namespace Business.BusinessAspects.Autofac.Caching
 {
     public class CacheAspect:MethodInterception
     {

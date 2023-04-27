@@ -1,5 +1,7 @@
 using Business.Abstract;
 using Business.Concrete;
+using Core.DependencyResolvers;
+using Core.Utilities.IoC;
 using Core.Utilities.Security.Encryption;
 using Core.Utilities.Security.JWT;
 using DataAccess.Abstract;
@@ -19,6 +21,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Core.Extensions;
 
 namespace WebAPI
 {
@@ -34,14 +37,14 @@ namespace WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IAuthService, AuthManager>();
-            services.AddSingleton<ITokenHelper, JwtHelper>();
-            services.AddSingleton<IVictimService, VictimManager>();
-            services.AddSingleton<IVictimDal, EfVictimDal>();
-            services.AddSingleton<IUserService, UserManager>();
-            services.AddSingleton<IUserDal, EfUserDal>();
-            services.AddSingleton<IBuildReporterService, BuildReporterManager>();
-            services.AddSingleton<IBuildReporterDal, EfBuildReporterDal>();
+            //services.AddSingleton<IAuthService, AuthManager>();
+            //services.AddSingleton<ITokenHelper, JwtHelper>();
+            //services.AddSingleton<IVictimService, VictimManager>();
+            //services.AddSingleton<IVictimDal, EfVictimDal>();
+            //services.AddSingleton<IUserService, UserManager>();
+            //services.AddSingleton<IUserDal, EfUserDal>();
+            //services.AddSingleton<IBuildReporterService, BuildReporterManager>();
+            //services.AddSingleton<IBuildReporterDal, EfBuildReporterDal>();
 
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -58,6 +61,8 @@ namespace WebAPI
                         IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
                     };
                 });
+
+            services.AddDependencyResolvers(new ICoreModule[] { new CoreModule() });
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
