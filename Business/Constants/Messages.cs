@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.Cosntants
+namespace Business.Constants
 {
     public static class Messages
     {
@@ -25,5 +25,6 @@ namespace Business.Cosntants
         public static string ColdVictimsListed = "Cold Victims Were Listed";
         public static string TheColdVictimListed = "The Cold Victim Was Listed";
         public static string ColdVictimUpdated = "Cold Victim Was Uptaded";
+        public static string AuthorizationDenied= "Authorization Denied";
     }
 }

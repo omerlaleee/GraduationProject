@@ -40,6 +40,8 @@ namespace WebAPI
             services.AddSingleton<IVictimDal, EfVictimDal>();
             services.AddSingleton<IUserService, UserManager>();
             services.AddSingleton<IUserDal, EfUserDal>();
+            services.AddSingleton<IBuildReporterService, BuildReporterManager>();
+            services.AddSingleton<IBuildReporterDal, EfBuildReporterDal>();
 
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

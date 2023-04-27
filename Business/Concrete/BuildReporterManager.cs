@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using DataAccess.Concrete;
@@ -18,7 +19,7 @@ namespace Business.Concrete
         {
             _buildReporterDal = buildReporterDal;
         }
-
+        [SecuredOperation("admin")]
         public IResult Add(BuildReporter buildReporter)
         {
             _buildReporterDal.Add(buildReporter);
@@ -30,7 +31,7 @@ namespace Business.Concrete
             _buildReporterDal.Delete(buildReporter);
             return new SuccessResult();
         }
-
+        [SecuredOperation("admin")]
         public IDataResult<List<BuildReporter>> GetAll()
         {
             return new SuccessDataResult<List<BuildReporter>>(_buildReporterDal.GetAll());
