@@ -19,7 +19,7 @@ namespace Business.Concrete
         {
             _buildReporterDal = buildReporterDal;
         }
-        [SecuredOperation("admin")]
+        //[SecuredOperation("admin")]
         public IResult Add(BuildReporter buildReporter)
         {
             _buildReporterDal.Add(buildReporter);
@@ -32,7 +32,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        [SecuredOperation("admin")]
+        //[SecuredOperation("admin")]
         public IDataResult<List<BuildReporter>> GetAll()
         {
             return new SuccessDataResult<List<BuildReporter>>(_buildReporterDal.GetAll());
