@@ -74,6 +74,10 @@ namespace WebAPI
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPI v1"));
             }
 
+            // Extension which is created by us for exception handling.
+            app.ConfigureCustomExceptionMiddleware();
+            // Extension which is created by us for exception handling.
+
             app.UseCors(builder=>builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
 
             app.UseHttpsRedirection();
