@@ -21,8 +21,8 @@ namespace Business.ValidationRules.FluentValidation
             //public string MapsAddress { get; set; }
 
             RuleFor(x => x.UserId).NotEmpty();
-            RuleFor(x => x.Address).MinimumLength(3).NotEmpty();
-            RuleFor(x => x.DetailedAddress).NotEmpty();
+            RuleFor(x => x.Address).MinimumLength(3).WithMessage("Adres Bölümü En Az 3 Karakter Olmalı!").NotEmpty();
+            RuleFor(x => x.DetailedAddress).MinimumLength(3).WithMessage("Detaylı Adres Bölümü En Az 3 Karakter Olmalı!").NotEmpty();
             RuleFor(x => x.Urgency).NotEmpty();
             RuleFor(x => x.MapsAddress).NotEmpty();
         }
