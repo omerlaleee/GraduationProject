@@ -70,5 +70,16 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpGet("getfoodhelperdetails")]
+        public IActionResult GetFoodHelperDetails()
+        {
+            var result = _foodHelperService.GetFoodHelperDetails();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }

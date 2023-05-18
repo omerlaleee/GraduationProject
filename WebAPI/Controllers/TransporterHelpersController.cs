@@ -70,5 +70,16 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpGet("gettransporterhelperdetails")]
+        public IActionResult GetTransporterHelperDetails()
+        {
+            var result = _transporterHelperService.GetTransporterHelperDetails();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }

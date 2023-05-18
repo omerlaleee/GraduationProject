@@ -1,5 +1,6 @@
 ﻿using Core.Utilities.Results;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,5 +16,6 @@ namespace Business.Abstract
         IResult Delete(HouseHelper houseHelper);
         IDataResult<List<HouseHelper>> GetAll();
         IDataResult<HouseHelper> GetById(int houseHelperId);
+        IDataResult<List<HouseHelperDetailDto>> GetHouseHelperDetails();
     }
 }

@@ -70,5 +70,16 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpGet("getoperatorhelperdetails")]
+        public IActionResult GetOperatorHelperDetails()
+        {
+            var result = _operatorHelperService.GetOperatorHelperDetails();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }
