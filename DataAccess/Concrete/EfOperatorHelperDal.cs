@@ -23,7 +23,7 @@ namespace DataAccess.Concrete
                              {
                                  Id = operatorHelper.Id,
                                  Email = user.Email,
-                                 Firstname = user.FirstName,
+                                 FirstName = user.FirstName,
                                  LastName = user.LastName,
                                  InfoAboutHelp = operatorHelper.InfoAboutHelp,
                                  Address=operatorHelper.Address,

@@ -15,7 +15,7 @@ namespace DataAccess.Concrete
         {
             string omerConnectionString = @"Data Source=DESKTOP-L9ESE9R\OMER;Initial Catalog=GraduationProjectDB;Integrated Security=True;Connect Timeout=9999999;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False;Trusted_Connection=true";
             string mesutConnectionString = @"Data Source=DESKTOP-8DD9NIJ;Initial Catalog=GraduationProjectDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            optionsBuilder.UseSqlServer(omerConnectionString);
+            optionsBuilder.UseSqlServer(mesutConnectionString);
         }
 
         public DbSet<Victim> Victims { get; set; }

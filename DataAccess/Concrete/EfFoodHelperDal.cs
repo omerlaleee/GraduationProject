@@ -25,7 +25,7 @@ namespace DataAccess.Concrete
                              {
                                  Id = foodHelper.Id,
                                  Email = user.Email,
-                                 Firstname = user.FirstName,
+                                 FirstName = user.FirstName,
                                  LastName = user.LastName,
                                  InfoAboutHelp = foodHelper.InfoAboutHelp,
                                  MapsAddress = foodHelper.MapsAddress,

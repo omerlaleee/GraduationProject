@@ -23,7 +23,7 @@ namespace DataAccess.Concrete
                              {
                                  Id = tentHelper.Id,
                                  Email = user.Email,
-                                 Firstname = user.FirstName,
+                                 FirstName = user.FirstName,
                                  LastName = user.LastName,
                                  InfoAboutHelp = tentHelper.InfoAboutHelp,
                                  MapsAddress = tentHelper.MapsAddress,

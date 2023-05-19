@@ -23,7 +23,7 @@ namespace DataAccess.Concrete
                              {
                                  Id = houseHelper.Id,
                                  Email = user.Email,
-                                 Firstname = user.FirstName,
+                                 FirstName = user.FirstName,
                                  LastName = user.LastName,
                                  InfoAboutHelp = houseHelper.InfoAboutHelp,
                                  MapsAddress = houseHelper.MapsAddress,
