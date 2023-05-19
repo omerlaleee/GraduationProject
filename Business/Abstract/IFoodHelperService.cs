@@ -1,5 +1,6 @@
 ﻿using Core.Utilities.Results;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,5 +16,6 @@ namespace Business.Abstract
         IResult Delete(FoodHelper foodHelper);
         IDataResult<List<FoodHelper>> GetAll();
         IDataResult<FoodHelper> GetById(int foodHelperId);
+        IDataResult<List<FoodHelperDetailDto>> GetFoodHelperDetails();
     }
 }

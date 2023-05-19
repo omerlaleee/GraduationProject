@@ -60,10 +60,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPost("update")]
-        public IActionResult Update(HouseHelper houseHelper)
+        [HttpGet("gethousehelperdetails")]
+        public IActionResult GetHouseHelperDetails()
         {
-            var result = _houseHelperService.Update(houseHelper);
+            var result = _houseHelperService.GetHouseHelperDetails();
             if (result.Success)
             {
                 return Ok(result);

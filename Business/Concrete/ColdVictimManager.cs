@@ -16,10 +16,13 @@ namespace Business.Concrete
     {
         IColdVictimDal _coldVictimDal;
         IVictimService _victimService;
-        public ColdVictimManager(IColdVictimDal coldVictimDal)
+
+        public ColdVictimManager(IColdVictimDal coldVictimDal, IVictimService victimService)
         {
             _coldVictimDal = coldVictimDal;
+            _victimService = victimService;
         }
+
         public IResult Add(ColdVictim coldVictim)
         {
             _coldVictimDal.Add(coldVictim);

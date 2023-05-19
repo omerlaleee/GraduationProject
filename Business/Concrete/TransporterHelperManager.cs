@@ -3,6 +3,7 @@ using Core.Utilities.Results;
 using DataAccess.Abstract;
 using DataAccess.Concrete;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,6 +42,10 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<TransporterHelper>(_transporterHelperDal.Get(t => t.Id == transporterHelperId));
         }
+
+        public IDataResult<List<TransporterHelperDetailDto>> GetTransporterHelperDetails()
+        {
+            return new SuccessDataResult<List<TransporterHelperDetailDto>>(_transporterHelperDal.GetTransporterHelperDetails());      }
 
         public IResult Update(TransporterHelper transporterHelper)
         {

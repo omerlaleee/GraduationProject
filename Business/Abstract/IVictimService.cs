@@ -16,5 +16,6 @@ namespace Business.Abstract
         IDataResult<List<Victim>> GetAll();
         IDataResult<Victim> GetById(int victimId);
         IDataResult<Victim> GetByEmail(string email);
+        IDataResult<List<Victim>> GetByVictimType(string email);
     }
 }

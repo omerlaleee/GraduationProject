@@ -4,6 +4,7 @@ using Core.Utilities.Results;
 using DataAccess.Abstract;
 using DataAccess.Concrete;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +40,11 @@ namespace Business.Concrete
         public IDataResult<FoodHelper> GetById(int foodHelperId)
         {
             return new SuccessDataResult<FoodHelper>(_foodHelperDal.Get(f => f.Id == foodHelperId));
+        }
+
+        public IDataResult<List<FoodHelperDetailDto>> GetFoodHelperDetails()
+        {
+            return new SuccessDataResult<List<FoodHelperDetailDto>>(_foodHelperDal.GetFoodHelperDetails());
         }
 
         public IResult Update(FoodHelper foodHelper)

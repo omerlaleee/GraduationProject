@@ -81,5 +81,16 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpGet("getbyvictimtype")]
+        public IActionResult GetByVictimType(string victimType)
+        {
+            var result=_victimService.GetByVictimType(victimType);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }

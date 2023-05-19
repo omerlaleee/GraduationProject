@@ -3,6 +3,7 @@ using Core.Utilities.Results;
 using DataAccess.Abstract;
 using DataAccess.Concrete;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +41,11 @@ namespace Business.Concrete
         public IDataResult<OperatorHelper> GetById(int operatorHelperId)
         {
             return new SuccessDataResult<OperatorHelper>(_operatorHelperDal.Get(o => o.Id == operatorHelperId));
+        }
+
+        public IDataResult<List<OperatorHelperDetailDto>> GetOperatorHelperDetails()
+        {
+            return new SuccessDataResult<List<OperatorHelperDetailDto>>(_operatorHelperDal.GetOperatorHelperDetails());
         }
 
         public IResult Update(OperatorHelper operatorHelper)

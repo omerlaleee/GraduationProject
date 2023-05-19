@@ -47,6 +47,12 @@ namespace Business.Concrete
             return new SuccessDataResult<Victim>(Messages.TheVictimListed, _victimDal.Get(v => v.Id == victimId));
         }
 
+        public IDataResult<List<Victim>> GetByVictimType(string victimType)
+        {
+            return new SuccessDataResult<List<Victim>>(Messages.TheVictimListed, _victimDal.GetAll(v => v.VictimType == victimType));
+
+        }
+
         public IResult Update(Victim victim)
         {
             _victimDal.Update(victim);
