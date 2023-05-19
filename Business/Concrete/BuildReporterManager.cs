@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Business.BusinessAspects.Autofac;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using DataAccess.Concrete;
@@ -19,7 +21,8 @@ namespace Business.Concrete
         {
             _buildReporterDal = buildReporterDal;
         }
-        [SecuredOperation("admin")]
+        //[SecuredOperation("admin")]
+        [ValidationAspect(typeof(BuildReporterValidator))]
         public IResult Add(BuildReporter buildReporter)
         {
             _buildReporterDal.Add(buildReporter);
@@ -32,7 +35,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        [SecuredOperation("admin")]
+        //[SecuredOperation("admin")]
         public IDataResult<List<BuildReporter>> GetAll()
         {
             return new SuccessDataResult<List<BuildReporter>>(_buildReporterDal.GetAll());

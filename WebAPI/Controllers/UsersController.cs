@@ -39,7 +39,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getall")]
-        [Authorize]
+        //[Authorize]
         public IActionResult GetAll()
         {
             var result = _userService.GetAll();
