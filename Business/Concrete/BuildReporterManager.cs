@@ -21,7 +21,8 @@ namespace Business.Concrete
         {
             _buildReporterDal = buildReporterDal;
         }
-        //[SecuredOperation("admin")]
+
+        [SecuredOperation("admin")]
         [ValidationAspect(typeof(BuildReporterValidator))]
         public IResult Add(BuildReporter buildReporter)
         {
