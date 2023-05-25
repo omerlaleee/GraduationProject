@@ -70,5 +70,16 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpGet("getbuildreporterdetails")]
+        public IActionResult GetFoodHelperDetails()
+        {
+            var result = _builderReporterService.GetBuildReporterDetails();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }

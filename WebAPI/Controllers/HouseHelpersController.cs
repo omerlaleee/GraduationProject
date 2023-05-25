@@ -7,11 +7,11 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class HauseHelpersController : ControllerBase
+    public class HouseHelpersController : ControllerBase
     {
         IHouseHelperService _houseHelperService;
 
-        public HauseHelpersController(IHouseHelperService houseHelperService)
+        public HouseHelpersController(IHouseHelperService houseHelperService)
         {
             _houseHelperService = houseHelperService;
         }
