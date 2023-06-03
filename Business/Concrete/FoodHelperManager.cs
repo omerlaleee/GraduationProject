@@ -47,6 +47,11 @@ namespace Business.Concrete
             return new SuccessDataResult<List<FoodHelperDetailDto>>(_foodHelperDal.GetFoodHelperDetails());
         }
 
+        public IDataResult<List<FoodHelperDetailDto>> GetFoodHelperDetailsByEmail(string email)
+        {
+            return new SuccessDataResult<List<FoodHelperDetailDto>>(_foodHelperDal.GetFoodHelperDetailsByEmail(email));
+        }
+
         public IResult Update(FoodHelper foodHelper)
         {
             _foodHelperDal.Update(foodHelper);

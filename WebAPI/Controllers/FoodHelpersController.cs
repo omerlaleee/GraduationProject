@@ -80,6 +80,17 @@ namespace WebAPI.Controllers
                 return Ok(result);
             }
             return BadRequest(result);
+        }        
+        
+        [HttpGet("getfoodhelperdetailsbyemail")]
+        public IActionResult GetFoodHelperDetailsByEmail(string email)
+        {
+            var result = _foodHelperService.GetFoodHelperDetailsByEmail(email);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
     }
 }

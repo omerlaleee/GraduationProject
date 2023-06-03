@@ -40,13 +40,6 @@ namespace Business.Concrete
             return new SuccessDataResult<List<ColdVictim>>(Messages.ColdVictimsListed, _coldVictimDal.GetAll());
         }
 
-        public IDataResult<ColdVictim> GetByEmail(string email)
-        {
-            var victim = _victimService.GetByEmail(email);
-            var coldVictim = new ColdVictim { VictimId = victim.Data.Id };
-            return new SuccessDataResult<ColdVictim>(Messages.TheColdVictimListed, coldVictim);
-        }
-
         public IDataResult<ColdVictim> GetById(int coldVictimId)
         {
             return new SuccessDataResult<ColdVictim>(Messages.TheColdVictimListed, _coldVictimDal.Get(c => c.Id == coldVictimId));

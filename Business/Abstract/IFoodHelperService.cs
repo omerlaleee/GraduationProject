@@ -17,5 +17,6 @@ namespace Business.Abstract
         IDataResult<List<FoodHelper>> GetAll();
         IDataResult<FoodHelper> GetById(int foodHelperId);
         IDataResult<List<FoodHelperDetailDto>> GetFoodHelperDetails();
+        IDataResult<List<FoodHelperDetailDto>> GetFoodHelperDetailsByEmail(string email);
     }
 }

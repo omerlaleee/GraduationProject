@@ -15,6 +15,5 @@ namespace Business.Abstract
         IResult Delete(ColdVictim coldVictim);
         IDataResult<List<ColdVictim>> GetAll();
         IDataResult<ColdVictim> GetById(int coldVictimId);
-        IDataResult<ColdVictim> GetByEmail(string email);
     }
 }

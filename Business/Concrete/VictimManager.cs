@@ -37,9 +37,9 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Victim>>(Messages.VictimsListed, _victimDal.GetAll());
         }
 
-        public IDataResult<Victim> GetByEmail(string email)
+        public IDataResult<List<Victim>> GetAllByEmail(string email)
         {
-            return new SuccessDataResult<Victim>(Messages.VictimsListed, _victimDal.Get(e => e.Email == email));
+            return new SuccessDataResult<List<Victim>>(Messages.VictimsListed, _victimDal.GetAll(e => e.Email == email));
         }
 
         public IDataResult<Victim> GetById(int victimId)

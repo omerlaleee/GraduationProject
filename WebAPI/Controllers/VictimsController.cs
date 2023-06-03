@@ -49,10 +49,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getbyemail")]
-        public IActionResult GetByEmail(string email)
+        [HttpGet("getallbyemail")]
+        public IActionResult GetAllByEmail(string email)
         {
-            var result = _victimService.GetByEmail(email);
+            var result = _victimService.GetAllByEmail(email);
             if (result.Success)
             {
                 return Ok(result);
