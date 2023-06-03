@@ -48,6 +48,11 @@ namespace Business.Concrete
             return new SuccessDataResult<List<BuildReporterDetailDto>>(_buildReporterDal.GetBuildReporterDetails());
         }
 
+        public IDataResult<List<BuildReporterDetailDto>> GetBuildReporterDetailsByEmail(string email)
+        {
+            return new SuccessDataResult<List<BuildReporterDetailDto>> (_buildReporterDal.GetBuildReporterDetailsByEmail(email));
+        }
+
         public IDataResult<BuildReporter> GetById(int buildReporterId)
         {
             return new SuccessDataResult<BuildReporter>(_buildReporterDal.Get(b => b.Id == buildReporterId));

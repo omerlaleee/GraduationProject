@@ -17,5 +17,6 @@ namespace Business.Abstract
         IDataResult<List<TentHelper>> GetAll();
         IDataResult<TentHelper> GetById(int tentHelperId);
         IDataResult<List<TentHelperDetailDto>> GetTentHelperDetails();
+        IDataResult<List<TentHelperDetailDto>> GetTentHelperDetailsByEmail(string email);
     }
 }

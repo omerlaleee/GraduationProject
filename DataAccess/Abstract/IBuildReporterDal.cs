@@ -12,5 +12,6 @@ namespace DataAccess.Abstract
     public interface IBuildReporterDal : IEntityRepository<BuildReporter>
     {
         List<BuildReporterDetailDto> GetBuildReporterDetails();
+        List<BuildReporterDetailDto> GetBuildReporterDetailsByEmail(string email);
     }
 }

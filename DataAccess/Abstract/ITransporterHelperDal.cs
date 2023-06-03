@@ -12,5 +12,6 @@ namespace DataAccess.Abstract
     public interface ITransporterHelperDal: IEntityRepository<TransporterHelper>
     {
         List<TransporterHelperDetailDto> GetTransporterHelperDetails();
+        List<TransporterHelperDetailDto> GetTransporterHelperDetailsByEmail(string email);
     }
 }

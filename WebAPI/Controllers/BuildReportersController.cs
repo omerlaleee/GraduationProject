@@ -72,9 +72,20 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getbuildreporterdetails")]
-        public IActionResult GetFoodHelperDetails()
+        public IActionResult GetBuildReporterDetails()
         {
             var result = _builderReporterService.GetBuildReporterDetails();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getbuildreporterdetailsbyemail")]
+        public IActionResult GetBuildReporterDetailsByEmail(string email)
+        {
+            var result = _builderReporterService.GetBuildReporterDetailsByEmail(email);
             if (result.Success)
             {
                 return Ok(result);

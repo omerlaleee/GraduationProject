@@ -81,5 +81,16 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpGet("getoperatorhelperdetailsbyemail")]
+        public IActionResult GetOperatorHelperDetailsByEmail(string email)
+        {
+            var result = _operatorHelperService.GetOperatorHelperDetailsByEmail(email);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }

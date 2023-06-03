@@ -17,5 +17,6 @@ namespace Business.Abstract
         IDataResult<List<OperatorHelper>> GetAll();
         IDataResult<OperatorHelper> GetById(int operatorHelperId);
         IDataResult<List<OperatorHelperDetailDto>> GetOperatorHelperDetails();
+        IDataResult<List<OperatorHelperDetailDto>> GetOperatorHelperDetailsByEmail(string email);
     }
 }

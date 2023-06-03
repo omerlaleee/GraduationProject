@@ -17,5 +17,6 @@ namespace Business.Abstract
         IDataResult<List<BuildReporter>> GetAll();
         IDataResult<BuildReporter> GetById(int buildReporterId);
         IDataResult<List<BuildReporterDetailDto>> GetBuildReporterDetails();
+        IDataResult<List<BuildReporterDetailDto>> GetBuildReporterDetailsByEmail(string email);
     }
 }

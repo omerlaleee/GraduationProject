@@ -45,7 +45,13 @@ namespace Business.Concrete
 
         public IDataResult<List<TransporterHelperDetailDto>> GetTransporterHelperDetails()
         {
-            return new SuccessDataResult<List<TransporterHelperDetailDto>>(_transporterHelperDal.GetTransporterHelperDetails());      }
+            return new SuccessDataResult<List<TransporterHelperDetailDto>>(_transporterHelperDal.GetTransporterHelperDetails());
+        }
+
+        public IDataResult<List<TransporterHelperDetailDto>> GetTransporterHelperDetailsByEmail(string email)
+        {
+            return new SuccessDataResult<List<TransporterHelperDetailDto>>(_transporterHelperDal.GetTransporterHelperDetailsByEmail(email));
+        }
 
         public IResult Update(TransporterHelper transporterHelper)
         {
