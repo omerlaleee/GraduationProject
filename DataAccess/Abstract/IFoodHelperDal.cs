@@ -12,5 +12,6 @@ namespace DataAccess.Abstract
     public interface IFoodHelperDal: IEntityRepository<FoodHelper>
     {
         List<FoodHelperDetailDto> GetFoodHelperDetails();
+        List<FoodHelperDetailDto> GetFoodHelperDetailsByEmail(string email);
     }
 }
