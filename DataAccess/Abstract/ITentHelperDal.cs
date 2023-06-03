@@ -12,5 +12,6 @@ namespace DataAccess.Abstract
     public interface ITentHelperDal: IEntityRepository<TentHelper>
     {
         List<TentHelperDetailDto> GetTentHelperDetails();
+        List<TentHelperDetailDto> GetTentHelperDetailsByEmail(string email);
     }
 }

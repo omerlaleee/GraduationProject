@@ -81,5 +81,16 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpGet("gettenthelperdetailsbyemail")]
+        public IActionResult GetTentHelperDetailsByEmail(string email)
+        {
+            var result = _tentHelperService.GetTentHelperDetailsByEmail(email);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }

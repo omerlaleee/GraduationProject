@@ -48,6 +48,11 @@ namespace Business.Concrete
             return new SuccessDataResult<List<OperatorHelperDetailDto>>(_operatorHelperDal.GetOperatorHelperDetails());
         }
 
+        public IDataResult<List<OperatorHelperDetailDto>> GetOperatorHelperDetailsByEmail(string email)
+        {
+            return new SuccessDataResult<List<OperatorHelperDetailDto>>(_operatorHelperDal.GetOperatorHelperDetailsByEmail(email));
+        }
+
         public IResult Update(OperatorHelper operatorHelper)
         {
             _operatorHelperDal.Update(operatorHelper);

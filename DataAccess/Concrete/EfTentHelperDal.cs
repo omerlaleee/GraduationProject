@@ -35,5 +35,30 @@ namespace DataAccess.Concrete
                 return result.ToList();
             }
         }
+
+        public List<TentHelperDetailDto> GetTentHelperDetailsByEmail(string email)
+        {
+            using (EarthquakeContext context = new EarthquakeContext())
+            {
+                var result = from tentHelper in context.TentHelpers
+                             join user in context.Users
+                             on tentHelper.UserId equals user.Id
+                             where user.Email== email
+                             select new TentHelperDetailDto()
+                             {
+                                 Id = tentHelper.Id,
+                                 UserId = tentHelper.UserId,
+                                 Email = user.Email,
+                                 FirstName = user.FirstName,
+                                 LastName = user.LastName,
+                                 InfoAboutHelp = tentHelper.InfoAboutHelp,
+                                 MapsAddress = tentHelper.MapsAddress,
+                                 NumberOfPeople = tentHelper.NumberOfPeople,
+                                 PhoneNumber = user.PhoneNumber,
+                             };
+
+                return result.ToList();
+            }
+        }
     }
 }

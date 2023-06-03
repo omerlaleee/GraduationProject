@@ -48,6 +48,11 @@ namespace Business.Concrete
             return new SuccessDataResult<List<TentHelperDetailDto>>(_tentHelperDal.GetTentHelperDetails());
         }
 
+        public IDataResult<List<TentHelperDetailDto>> GetTentHelperDetailsByEmail(string email)
+        {
+            return new SuccessDataResult<List<TentHelperDetailDto>>(_tentHelperDal.GetTentHelperDetailsByEmail(email));
+        }
+
         public IResult Update(TentHelper tentHelper)
         {
             _tentHelperDal.Update(tentHelper);

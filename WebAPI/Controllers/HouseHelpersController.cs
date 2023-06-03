@@ -69,6 +69,17 @@ namespace WebAPI.Controllers
                 return Ok(result);
             }
             return BadRequest(result);
+        }        
+        
+        [HttpGet("gethousehelperdetailsbyemail")]
+        public IActionResult GetHouseHelperDetailsByEmail(string email)
+        {
+            var result = _houseHelperService.GetHouseHelperDetailsByEmail(email);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
     }
 }

@@ -17,5 +17,6 @@ namespace Business.Abstract
         IDataResult<List<HouseHelper>> GetAll();
         IDataResult<HouseHelper> GetById(int houseHelperId);
         IDataResult<List<HouseHelperDetailDto>> GetHouseHelperDetails();
+        IDataResult<List<HouseHelperDetailDto>> GetHouseHelperDetailsByEmail(string email);
     }
 }

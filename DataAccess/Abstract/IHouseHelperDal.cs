@@ -12,5 +12,6 @@ namespace DataAccess.Abstract
     public interface IHouseHelperDal: IEntityRepository<HouseHelper>
     {
         List<HouseHelperDetailDto> GetHouseHelperDetails();
+        List<HouseHelperDetailDto> GetHouseHelperDetailsByEmail(string email);
     }
 }

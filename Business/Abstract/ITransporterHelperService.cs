@@ -17,5 +17,6 @@ namespace Business.Abstract
         IDataResult<List<TransporterHelper>> GetAll();
         IDataResult<TransporterHelper> GetById(int transporterHelperId);
         IDataResult<List<TransporterHelperDetailDto>> GetTransporterHelperDetails();
+        IDataResult<List<TransporterHelperDetailDto>> GetTransporterHelperDetailsByEmail(string email);
     }
 }

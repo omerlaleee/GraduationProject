@@ -12,5 +12,6 @@ namespace DataAccess.Abstract
     public interface IOperatorHelperDal:IEntityRepository<OperatorHelper>
     {
         List<OperatorHelperDetailDto> GetOperatorHelperDetails();
+        List<OperatorHelperDetailDto> GetOperatorHelperDetailsByEmail(string email);
     }
 }
