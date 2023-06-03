@@ -24,6 +24,7 @@ namespace DataAccess.Concrete
                              select new FoodHelperDetailDto()
                              {
                                  Id = foodHelper.Id,
+                                 UserId = foodHelper.UserId,
                                  Email = user.Email,
                                  FirstName = user.FirstName,
                                  LastName = user.LastName,

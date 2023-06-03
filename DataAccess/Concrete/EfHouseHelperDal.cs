@@ -22,6 +22,7 @@ namespace DataAccess.Concrete
                              select new HouseHelperDetailDto()
                              {
                                  Id = houseHelper.Id,
+                                 UserId = houseHelper.UserId,
                                  Email = user.Email,
                                  FirstName = user.FirstName,
                                  LastName = user.LastName,

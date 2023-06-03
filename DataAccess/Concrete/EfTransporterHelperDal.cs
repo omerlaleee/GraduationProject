@@ -22,6 +22,7 @@ namespace DataAccess.Concrete
                              select new TransporterHelperDetailDto()
                              {
                                  Id = transporterHelper.Id,
+                                 UserId = transporterHelper.UserId,
                                  Email = user.Email,
                                  FirstName = user.FirstName,
                                  LastName = user.LastName,

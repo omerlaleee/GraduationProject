@@ -22,6 +22,7 @@ namespace DataAccess.Concrete
                              select new TentHelperDetailDto()
                              {
                                  Id = tentHelper.Id,
+                                 UserId = tentHelper.UserId,
                                  Email = user.Email,
                                  FirstName = user.FirstName,
                                  LastName = user.LastName,
