@@ -13,6 +13,8 @@ namespace Business.Abstract
         IDataResult<User> GetById(int userId);
         IDataResult<List<OperationClaim>> GetClaims(int userId);
         IDataResult<User> GetByMail(string email);
+        IResult IsAdmin(int userId);
+        IResult DoesExist(int userId);
     }
 
 }

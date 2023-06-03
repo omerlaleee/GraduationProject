@@ -82,6 +82,28 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+        
+        [HttpGet("isadmin")]
+        public IActionResult IsAdmin(int userId)
+        {
+            var result = _userService.IsAdmin(userId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("doesexist")]
+        public IActionResult DoesExist(int userId)
+        {
+            var result = _userService.DoesExist(userId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
 
         [HttpPost("update")]
         public IActionResult Update(User user)
