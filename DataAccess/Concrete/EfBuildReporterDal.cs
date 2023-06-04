@@ -29,7 +29,7 @@ namespace DataAccess.Concrete
                                  PhoneNumber = user.PhoneNumber,
                                  Address = buildReporter.Address,
                                  DetailedAddress = buildReporter.DetailedAddress,
-                                 MapsAddress = buildReporter.DetailedAddress,
+                                 MapsAddress = buildReporter.MapsAddress,
                                  Urgency = buildReporter.Urgency
                              };
 
@@ -55,7 +55,7 @@ namespace DataAccess.Concrete
                                  PhoneNumber = user.PhoneNumber,
                                  Address = buildReporter.Address,
                                  DetailedAddress = buildReporter.DetailedAddress,
-                                 MapsAddress = buildReporter.DetailedAddress,
+                                 MapsAddress = buildReporter.MapsAddress,
                                  Urgency = buildReporter.Urgency
                              };
 
