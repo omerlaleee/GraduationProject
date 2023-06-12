@@ -51,6 +51,10 @@ namespace Business.Concrete
             {
                 return new ErrorDataResult<User>("Messages.UserNotFound");
             }
+            if (userToCheck.Data.Status == false)
+            {
+                return new ErrorDataResult<User>("Messages.UserBanned");
+            }
 
             if (!HashingHelper.VerifyPasswordHash(userForLoginDto.Password, userToCheck.Data.PasswordHash, userToCheck.Data.PasswordSalt))
             {
@@ -71,7 +75,7 @@ namespace Business.Concrete
 
         public IDataResult<AccessToken> CreateAccessToken(User user)
         {
-            var claims = _userService.GetClaims(user.Id);
+            var claims = _userService.GetClaimsOfUser(user.Id);
             var accessToken = _tokenHelper.CreateToken(user, claims.Data);
             return new SuccessDataResult<AccessToken>("Messages.AccessTokenCreated", accessToken);
         }

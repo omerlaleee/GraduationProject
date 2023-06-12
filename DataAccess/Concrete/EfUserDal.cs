@@ -11,7 +11,7 @@ namespace DataAccess.Concrete
 {
     public class EfUserDal : EfEntityRepositoryBase<User, EarthquakeContext>, IUserDal
     {
-        public List<OperationClaim> GetClaims(int userId)
+        public List<OperationClaim> GetClaimsOfUser(int userId)
         {
             using (var context = new EarthquakeContext())
             {

@@ -10,8 +10,9 @@ namespace Business.Abstract
         IResult Update(User user);
         IResult Delete(User user);
         IDataResult<List<User>> GetAll();
+        IDataResult<List<User>> GetAllWithoutAdmins();
         IDataResult<User> GetById(int userId);
-        IDataResult<List<OperationClaim>> GetClaims(int userId);
+        IDataResult<List<OperationClaim>> GetClaimsOfUser(int userId);
         IDataResult<User> GetByMail(string email);
         IResult IsAdmin(int userId);
         IResult DoesExist(int userId);

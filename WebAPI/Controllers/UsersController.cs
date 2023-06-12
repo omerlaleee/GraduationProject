@@ -50,6 +50,19 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
+        [HttpGet("getallwithoutadmins")]
+        //[Authorize]
+        public IActionResult GetAllWithoutAdmins()
+        {
+            var result = _userService.GetAllWithoutAdmins();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+        
+
         [HttpGet("getbyid")]
         public IActionResult GetById(int id)
         {
@@ -75,7 +88,7 @@ namespace WebAPI.Controllers
         [HttpGet("getclaims")]
         public IActionResult GetClaims(int userId)
         {
-            var result = _userService.GetClaims(userId);
+            var result = _userService.GetClaimsOfUser(userId);
             if (result.Success)
             {
                 return Ok(result);

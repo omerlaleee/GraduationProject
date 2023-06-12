@@ -37,6 +37,20 @@ namespace Business.Concrete
             return new SuccessDataResult<List<User>>("Messages.UsersListed", _userDal.GetAll());
         }
 
+        public IDataResult<List<User>> GetAllWithoutAdmins()
+        {
+            var allUsers = _userDal.GetAll();
+            List<User> result = new();
+            foreach (var item in allUsers)
+            {
+                if (!IsAdmin(item.Id).Success)
+                {
+                    result.Add(item);
+                }
+            }
+            return new SuccessDataResult<List<User>>("Messages.UsersListedWithoutAdmins", result);
+        }
+
         public IDataResult<User> GetById(int userId)
         {
             return new SuccessDataResult<User>("Messages.TheUserListed", _userDal.Get(u => u.Id == userId));
@@ -53,15 +67,15 @@ namespace Business.Concrete
 
         }
 
-        public IDataResult<List<OperationClaim>> GetClaims(int userId)
+        public IDataResult<List<OperationClaim>> GetClaimsOfUser(int userId)
         {
             if (DoesExist(userId).Success)
             {
-                if (_userDal.GetClaims(userId).Count != 0)
+                if (_userDal.GetClaimsOfUser(userId).Count != 0)
                 {
-                    return new SuccessDataResult<List<OperationClaim>>("Messages.UserClaimsListed", _userDal.GetClaims(userId));
+                    return new SuccessDataResult<List<OperationClaim>>("Messages.UserClaimsListed", _userDal.GetClaimsOfUser(userId));
                 }
-                return new ErrorDataResult<List<OperationClaim>>("Messages.UserDoesNotHaveAnyClaim", _userDal.GetClaims(userId));
+                return new ErrorDataResult<List<OperationClaim>>("Messages.UserDoesNotHaveAnyClaim");
             }
             return new ErrorDataResult<List<OperationClaim>>("Messages.UserDoesNotExist");
         }
@@ -71,7 +85,7 @@ namespace Business.Concrete
             if (DoesExist(userId).Success)
             {
                 List<OperationClaim> claimsOfUser = new List<OperationClaim>();
-                claimsOfUser = GetClaims(userId).Data;
+                claimsOfUser = GetClaimsOfUser(userId).Data;
                 if (claimsOfUser != null)
                 {
                     foreach (var item in claimsOfUser)
