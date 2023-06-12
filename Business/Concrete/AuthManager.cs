@@ -25,7 +25,7 @@ namespace Business.Concrete
             _tokenHelper = tokenHelper;
         }
 
-        //[ValidationAspect(typeof(UserValidator))]
+        [ValidationAspect(typeof(UserValidator))]
         public IDataResult<User> Register(UserForRegisterDto userForRegisterDto)
         {
             byte[] passwordHash, passwordSalt;

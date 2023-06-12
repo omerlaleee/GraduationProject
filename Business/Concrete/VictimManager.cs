@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using DataAccess.Concrete;
@@ -19,7 +21,7 @@ namespace Business.Concrete
         {
             _victimDal = victimDal;
         }
-
+        [ValidationAspect(typeof(VictimValidator))]
         public IResult Add(Victim victim)
         {
             _victimDal.Add(victim);

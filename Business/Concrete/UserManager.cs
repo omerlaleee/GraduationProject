@@ -75,9 +75,9 @@ namespace Business.Concrete
                 {
                     return new SuccessDataResult<List<OperationClaim>>("Messages.UserClaimsListed", _userDal.GetClaimsOfUser(userId));
                 }
-                return new ErrorDataResult<List<OperationClaim>>("Messages.UserDoesNotHaveAnyClaim");
+                return new ErrorDataResult<List<OperationClaim>>("Messages.UserDoesNotHaveAnyClaim", _userDal.GetClaimsOfUser(userId));
             }
-            return new ErrorDataResult<List<OperationClaim>>("Messages.UserDoesNotExist");
+            return new ErrorDataResult<List<OperationClaim>>("Messages.UserDoesNotExist", _userDal.GetClaimsOfUser(userId));
         }
 
         public IResult IsAdmin(int userId)

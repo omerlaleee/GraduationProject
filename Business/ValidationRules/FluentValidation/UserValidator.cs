@@ -2,6 +2,7 @@
 using Entities.Concrete;
 using Entities.DTOs;
 using FluentValidation;
+using FluentValidation.Validators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
